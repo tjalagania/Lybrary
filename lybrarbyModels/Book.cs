@@ -11,5 +11,6 @@ namespace lybrarbyModels
         public int Id { get; set; }
         public virtual Item? Item{get;set;}
         public string? ISBN { get; set; }
+        public virtual List<Author>? Authros { get; set; }
     }
 }

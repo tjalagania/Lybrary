@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace Lybrary.common
 {
-    public abstract class Principal<T>
+    public abstract class Principal
     {
         public string? Name { get; set; }
-        public abstract void SetPrincipal(T pricipal);
-        public abstract T GetPrincipal();
-        public abstract void UpdatePricipal(T pricipal);
-        public abstract void DeletePricipal(T principal);
+        public string? Phone { get; set; }
+
+        public string? Email { get; set; }
+        public string? Password { get; set; }
+        public abstract bool ConfirmPassword(string passwd, string confirmPasswd);
+
     }
 }

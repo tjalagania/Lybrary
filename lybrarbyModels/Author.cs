@@ -8,7 +8,8 @@ namespace lybrarbyModels
 {
     public class Author
     {
-        public string Id { get; set; }
-        public string? Name { get; set; }    
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public virtual List<Item>? Items { get; set; }
     }
 }

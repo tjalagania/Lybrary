@@ -6,26 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lybrary.common
 {
-    public class Author : Principal<Author>
+    public class Author : Principal
     {
-        
-
-        public override void DeletePricipal(Author principal)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Author GetPrincipal()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void SetPrincipal(Author pricipal)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void UpdatePricipal(Author pricipal)
+        public override bool ConfirmPassword(string passwd, string confirmPasswd)
         {
             throw new NotImplementedException();
         }
