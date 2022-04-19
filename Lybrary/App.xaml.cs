@@ -1,4 +1,8 @@
-﻿using Lybrary.LybrarbyDbContext;
+﻿using Lybrary.common;
+using Lybrary.LybrarbyDbContext;
+using Lybrary.LybrarbyDbContext.Services;
+using Lybrary.Navigation;
+using Lybrary.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,11 +22,19 @@ namespace Lybrary
         private const string CON_STRING = "Data Source = Lybrary.db";
         protected override void OnStartup(StartupEventArgs e)
         {
+            LibraryDbContextFactory factory = new LibraryDbContextFactory(CON_STRING);
+            using (LbDbContext context = factory.CreateDbContext())
+            {
+                context.Database.Migrate();
+            }
 
-            DbContextOptions options = new DbContextOptionsBuilder().UseSqlite(CON_STRING).Options;
-            LbDbContext context = new LbDbContext(options);
-            context.Database.Migrate();
 
+            NavigationStore navStore = new NavigationStore();
+            MainWindow m = new MainWindow()
+            {
+                DataContext = new MainViewModel(factory,navStore)
+            };
+            m.Show();
             base.OnStartup(e);
         }
     }

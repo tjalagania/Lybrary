@@ -4,9 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lybrary"
+        xmlns:viewmodel="clr-namespace:Lybrary.ViewModels"
+        xmlns:view="clr-namespace:Lybrary.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="748" Width="1024">
     <Grid>
-
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type viewmodel:LoginViewModel}">
+                <view:LoginView  />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodel:AdminPanelViewModel}">
+                <view:AdminPanelView />
+            </DataTemplate>
+        </Grid.Resources>
+        <ContentControl Content="{Binding CurrentView}"></ContentControl>
     </Grid>
 </Window>

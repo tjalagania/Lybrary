@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="Lybrary.Views.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Lybrary.Views"
+             xmlns:viewmodel="clr-namespace:Lybrary.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodel:LoginViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+            
+             >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="24"
+            Style="{StaticResource FontCaps}"
+            Text="წარადგინეთ თქვენი ლოგინი და პაროლი" />
+        <StackPanel Grid.Row="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" MinWidth="200">
+            <TextBlock Text="ლოგინი" Margin="0 0 0 10" />
+            <TextBox Text="{Binding Path=UserName}" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" 
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" MinWidth="200">
+            <TextBlock Text="პაროლი" Margin="0 0 0 10"/>
+            <TextBox Text="{Binding Path=Password}" />
+        </StackPanel>
+        <Button Content="ავტორიზაცია" Grid.Row="3" 
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Command="{Binding AuthCommand}"
+                />
+    </Grid>
+</UserControl>

@@ -8,6 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\BPGCaps.ttf" />
+    <None Remove="Images\Ethnicity_icon.png" />
+    <None Remove="Images\favpng_favicon-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Fonts\BPGCaps.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\favpng_favicon-icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.4">
       <PrivateAssets>all</PrivateAssets>
@@ -17,6 +32,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\lybrarbyModels\lybrarbyModels.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\Ethnicity_icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

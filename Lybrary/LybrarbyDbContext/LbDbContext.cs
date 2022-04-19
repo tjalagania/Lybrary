@@ -21,5 +21,6 @@ namespace Lybrary.LybrarbyDbContext
         public DbSet<User> Users { get; set; }
         public DbSet<Author>Authors { get; set; }
         public DbSet<Borrow> Borrows { get; set; }
+        public DbSet<Credential>Credentials { get; set; }
     }
 }

@@ -8,6 +8,7 @@ namespace lybrarbyModels
 {
     public class Credential
     {
+        public int Id { get; set; }
         public virtual User User { get; set; }
         public string? Username { get; set; }
 
@@ -15,6 +16,6 @@ namespace lybrarbyModels
         public string? Phone { get; set; }
 
         public string? Email { get; set; }
-        public bool IsAdmin { get; set; }
+        public int IsAdmin { get; set; }
     }
 }

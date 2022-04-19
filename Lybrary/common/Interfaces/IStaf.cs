@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lybrary.common
+namespace Lybrary.common.Interfaces
 {
-    public class Author 
+    public interface IStaf
     {
-       
+        public Roole IsAdmin();
     }
 }

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lybrary.common
 {
-    public class Author 
+    public enum Roole
     {
-       
+        Lybrarian,
+        Student
     }
 }
