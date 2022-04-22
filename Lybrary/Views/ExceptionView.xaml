@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="Lybrary.Views.ExceptionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Lybrary.Views"
+             xmlns:vmmodel="clr-namespace:Lybrary.ViewModels"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignData Type=vmmodel:ExceptionViewModel}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Border
+            BorderBrush="Black" BorderThickness="1" CornerRadius="12"
+            MinWidth="300" MinHeight="200" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel 
+                HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    >
+            <TextBlock FontSize="18" Text="Sorry" />
+            <TextBlock FontSize="24" Text="{Binding Path=Message}" Foreground="Red"/>
+            <TextBlock Text="can't be find" FontSize="18" />
+            </StackPanel>
+        </Border>
+        
+    </Grid>
+</UserControl>

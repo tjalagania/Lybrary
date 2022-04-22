@@ -23,28 +23,27 @@ namespace Lybrary.LybrarbyDbContext.Services
             throw new NotImplementedException();
         }
 
-        public Task<Principal> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        
 
         
 
         public async Task<Principal> GetDboject(string username, string password)
         {
-            Credential tmppr;
-            using (LbDbContext context = factory.CreateDbContext())
-            {
-                tmppr = await context.Credentials.Include(p => p.User)
-                    .SingleOrDefaultAsync(p => p.Username.Equals(username) && p.Password.Equals(password));
-                    
-                
-            }
-            return ToPricipal(tmppr)??null;
+
+            using LbDbContext context = factory.CreateDbContext();
+            var tmppr = await context.Credentials.Include(p => p.User)
+                  .SingleOrDefaultAsync(p => p.Username.Equals(username) && p.Password.Equals(password));
+            context.Dispose();
+            return ToPricipal(tmppr);
+
         }
-        private Principal ToPricipal(Credential cr)
+        private static Principal ToPricipal(Credential cr)
         {
             Principal pr;
+            if(cr!=null)
+            {
+
+            }
             switch (cr.IsAdmin)
             {
                 case (int)Roole.Lybrarian:
@@ -104,14 +103,31 @@ namespace Lybrary.LybrarbyDbContext.Services
             return tmpcr;
         }
 
-        Task<IEnumerable<Principal>> IDbService<Principal>.GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public Task<Principal> GetDbObject(Principal dbobject)
         {
             throw new NotImplementedException();
+        }
+
+        
+
+        //public async IAsyncEnumerable<Principal> GetAllLibraryanAsync(Roole roole)
+        //{
+           
+        //}
+
+        public async IAsyncEnumerable<Principal> GetAllLibraryan(Roole roole)
+        {
+            
+            using LbDbContext context = factory.CreateDbContext();
+            var  result = await Task.Run(() => context.Credentials.Include(m => m.User).Where(m => m.IsAdmin == (int)roole)
+                .Select(m => ToPricipal(m)));
+
+            if (result != null)
+                foreach (var p in result)
+                    yield return p;
+            
         }
     }
 }

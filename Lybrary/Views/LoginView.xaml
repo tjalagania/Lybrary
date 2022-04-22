@@ -24,13 +24,14 @@
             Style="{StaticResource FontCaps}"
             Text="წარადგინეთ თქვენი ლოგინი და პაროლი" />
         <StackPanel Grid.Row="1"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center" MinWidth="200">
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center" MinWidth="200"
+                    Margin="0 0 0 10">
             <TextBlock Text="ლოგინი" Margin="0 0 0 10" />
             <TextBox Text="{Binding Path=UserName}" />
         </StackPanel>
         <StackPanel Grid.Row="2" 
-                    VerticalAlignment="Center"
+                    
                     HorizontalAlignment="Center" MinWidth="200">
             <TextBlock Text="პაროლი" Margin="0 0 0 10"/>
             <TextBox Text="{Binding Path=Password}" />
