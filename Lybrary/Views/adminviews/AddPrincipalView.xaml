@@ -5,15 +5,173 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Lybrary.Views.adminviews"
               xmlns:sys="clr-namespace:System;assembly=mscorlib" 
-             xmlns:common="clr-namespace:Lybrary.common" xmlns:viewmodels="clr-namespace:Lybrary.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:AddPrincipalViewModel}"
+             xmlns:common="clr-namespace:Lybrary.common"
+             
+             xmlns:viewmodels="clr-namespace:Lybrary.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:AddPrincipalViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     
         
-    <Grid>
-        <ComboBox 
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            SelectedIndex="0" ItemsSource="{Binding Path=Rooles}" />
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock
+            FontSize="24"
+            Foreground="Red"
+            x:Name="validatinMessage" Text="{Binding Path=MError}"/>
+        <Grid Grid.Row="1" Margin="0 5 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock 
+                FontWeight="DemiBold"
+                Text="Name" HorizontalAlignment="Left"/>
+            <TextBox  Grid.Row="1" MaxWidth="300" MinWidth="300"
+                     HorizontalAlignment="Left" x:Name="username" Text="{Binding Path=Name, ValidatesOnDataErrors=True}">
+                <TextBox.InputBindings>
+                    <MouseBinding Command="{Binding EnterTextBoxCommand}" Gesture="LeftClick" />
+                </TextBox.InputBindings>
+            </TextBox>
+            <TextBlock Text="{Binding ElementName=username, Path=(Validation.Errors)[0].ErrorContent}"
+                       
+                       x:Name="UserNameErrorTextBlock" Grid.Row="2" HorizontalAlignment="Left">
+                
+            </TextBlock>
+        </Grid>
+        <Grid Grid.Row="2" Margin="0 5 0 0 ">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Phone"
+                       FontWeight="DemiBold"
+                       HorizontalAlignment="Left" />
+            <TextBox Text="{Binding Path=Phone, ValidatesOnDataErrors=True}" Grid.Row="1"
+                     MaxWidth="300"
+                     MinWidth="300"
+                     HorizontalAlignment="Left" 
+                     x:Name="phonetextbox"
+                     >
+                <TextBox.InputBindings>
+                    <MouseBinding Command="{Binding EnterTextBoxCommand}" Gesture="LeftClick" />
+                </TextBox.InputBindings>
+            </TextBox>
+            <TextBlock 
+                
+                x:Name="PhoneError"
+                Text="{Binding ElementName=phonetextbox, Path=(Validation.Errors)[0].ErrorContent}" Grid.Row="2" HorizontalAlignment="Left" />
+        </Grid>
+        <Grid Grid.Row="3" Margin="0 5 0 0 ">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock 
+                FontWeight="DemiBold"
+                Text="Email" HorizontalAlignment="Left" />
+            <TextBox Text="{Binding Path=Email,ValidatesOnDataErrors=True}" Grid.Row="1"
+                     x:Name="emailTextBox"
+                     MaxWidth="300"
+                     MinWidth="300"
+                     HorizontalAlignment="Left" >
+                <TextBox.InputBindings>
+                    <MouseBinding Command="{Binding EnterTextBoxCommand}" Gesture="LeftClick" />
+                </TextBox.InputBindings>
+            </TextBox>
+            <TextBlock 
+                x:Name="EmailError"
+               
+                Text="{Binding ElementName=emailTextBox,Path=(Validation.Errors)[0].ErrorContent}" Grid.Row="2" HorizontalAlignment="Left" />
+        </Grid>
+        <Grid Grid.Row="4" Margin="0 5 0 0 ">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock 
+                FontWeight="DemiBold"
+                Text="UserName" HorizontalAlignment="Left" />
+            <TextBox Text="{Binding Path=UserName,ValidatesOnDataErrors=True}" Grid.Row="1"
+                     MaxWidth="300"
+                     MinWidth="300"
+                     x:Name="userNameTextBox"
+                     HorizontalAlignment="Left">
+                <TextBox.InputBindings>
+                    <MouseBinding Command="{Binding EnterTextBoxCommand}" Gesture="LeftClick" />
+                </TextBox.InputBindings>
+            </TextBox>
+            <TextBlock Text="{Binding ElementName=userNameTextBox,Path=(Validation.Errors)[0].ErrorContent}" 
+                       
+                       Visibility="Hidden"
+                       Grid.Row="2" HorizontalAlignment="Left" />
+        </Grid>
+        <Grid Grid.Row="5" Margin="0 5 0 0 ">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock 
+                FontWeight="DemiBold"
+                Text="Password" HorizontalAlignment="Left" />
+            <TextBox Text="{Binding Path=Password}" Grid.Row="1"
+                     MaxWidth="300"
+                     MinWidth="300"
+                     HorizontalAlignment="Left" >
+                <TextBox.InputBindings>
+                    <MouseBinding Command="{Binding EnterTextBoxCommand}" Gesture="LeftClick" />
+                </TextBox.InputBindings>
+            </TextBox>
+            <TextBlock Text="Error Message"
+                       Visibility="Hidden"
+                       Grid.Row="2" HorizontalAlignment="Left" />
+        </Grid>
+        <Grid Grid.Row="6" Margin="0 5 0 0 ">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock 
+                FontWeight="DemiBold"
+                Text=" Confirm Password" HorizontalAlignment="Left" />
+            <TextBox Text="{Binding ConfimPassword}" Grid.Row="1"
+                     MaxWidth="300"
+                     MinWidth="300"
+                     HorizontalAlignment="Left" >
+                <TextBox.InputBindings>
+                    <MouseBinding Command="{Binding EnterTextBoxCommand}" Gesture="LeftClick" />
+                </TextBox.InputBindings>
+            </TextBox>
+            <TextBlock Text="Error Message"
+                       x:Name="passwordBox"
+                       Visibility="Hidden"
+                       Grid.Row="2" HorizontalAlignment="Left" />
+        </Grid>
+        <StackPanel Grid.Row="7" Orientation="Horizontal" Margin="0 10 0 0">
+            <Button Margin="0 0 10 0"
+                    
+                    
+                    Command="{Binding AddPrincipalCommand}">
+                Add
+            </Button>
+            <Button>Cancel</Button>
+        </StackPanel>
     </Grid>
 </UserControl>

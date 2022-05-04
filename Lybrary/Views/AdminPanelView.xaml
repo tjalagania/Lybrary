@@ -27,9 +27,11 @@
                 </RibbonGroup>
                 <RibbonGroup>
                      <RibbonButton Label="Add Principal"
-                              VerticalAlignment="Top"
+                                  VerticalAlignment="Top"
                                   Cursor="Hand"
-                                  LargeImageSource="/Images/favpng_favicon-icon.png" />
+                                  LargeImageSource="/Images/favpng_favicon-icon.png" 
+                                  Command="{Binding ShowAddPrincipalCommand}" 
+                                   />
                 </RibbonGroup>
                
             </RibbonTab>

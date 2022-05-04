@@ -28,6 +28,7 @@ namespace Lybrary.ViewModels
         }
         #region Commands
         public ICommand? ShowListPrincipalCommand { get; }
+       
         private async void showListMethod(object obj)
         {
             if (obj is Roole roole)
@@ -63,15 +64,21 @@ namespace Lybrary.ViewModels
 
             }
         }
+        public ICommand? ShowAddPrincipalCommand { get; }
+        private void ShowAddPrincipalMethod(object obj)
+        {
+            CurrentView = new AddPrincipalViewModel(Factory, null);
+        }
         #endregion
         public AdminPanelViewModel(LibraryDbContextFactory factory, NavigationStore navStore)
             : base(factory, navStore)
         {
             
             ShowListPrincipalCommand = new WithoutNavCommand(showListMethod);
+            ShowAddPrincipalCommand = new WithoutNavCommand(ShowAddPrincipalMethod);
         }
 
-
+        
 
         private string? _username;
         public string? UserName

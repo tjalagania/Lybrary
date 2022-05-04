@@ -9,7 +9,11 @@ namespace Lybrary.common
 {
     public abstract class Principal
     {
-        public IStaf Staf { get; set; }
+        public Principal()
+        {
+
+        }
+        public IStaf? Staf { get; set; }
         public string? Name { get; set; }
         public string? Phone { get; set; }
 

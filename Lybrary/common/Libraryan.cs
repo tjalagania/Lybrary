@@ -14,7 +14,7 @@ namespace Lybrary.common
         }
         public override bool ConfirmPassword(string passwd, string confirmPasswd)
         {
-            throw new NotImplementedException();
+            return passwd.Equals(confirmPasswd);
         }
     }
 }

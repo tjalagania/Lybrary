@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,7 +21,7 @@ namespace Lybrary.ViewModels
             Factory = factory;
            Nav = nav;
         }
-        public void OnPropertyChanged(string propertName)
+        public virtual void OnPropertyChanged([CallerMemberName]string propertName="")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertName));
         }
