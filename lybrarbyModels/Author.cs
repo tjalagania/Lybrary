@@ -10,6 +10,7 @@ namespace lybrarbyModels
     {
         public int Id { get; set; }
         public string? Name { get; set; }
-        public virtual List<Item>? Items { get; set; }
+        public virtual List<Book>? Books { get; set; }
+        public virtual List<Artical>? Articals { get; set; }
     }
 }

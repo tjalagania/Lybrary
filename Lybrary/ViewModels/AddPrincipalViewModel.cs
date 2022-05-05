@@ -3,14 +3,8 @@ using Lybrary.common;
 using Lybrary.LybrarbyDbContext;
 using Lybrary.LybrarbyDbContext.Services;
 using Lybrary.Navigation;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace Lybrary.ViewModels
@@ -226,9 +220,18 @@ namespace Lybrary.ViewModels
         }
         #endregion
 
-        public AddPrincipalViewModel(LibraryDbContextFactory factory, NavigationStore nav) : base(factory, nav)
+        public AddPrincipalViewModel(LibraryDbContextFactory factory, NavigationStore nav,Roole roole) : base(factory, nav)
         {
-            Librarian = new Libraryan();
+            
+            switch (roole)
+            {
+                case Roole.Lybrarian:
+                    Librarian = new Libraryan();
+                    break;
+                case Roole.Student:
+                    Librarian = new Student();
+                    break;
+            }
             AddPrincipalCommand = new WithoutNavCommand(AddPrincipalMethod);
             EnterTextBoxCommand = new WithoutNavCommand(EnterTextBoxMethod);
         }

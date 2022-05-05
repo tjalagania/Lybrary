@@ -26,16 +26,27 @@
                     
                 </RibbonGroup>
                 <RibbonGroup>
-                     <RibbonButton Label="Add Principal"
+                     <RibbonButton Label="Add Liraryan"
+                                  VerticalAlignment="Top"
+                                  Cursor="Hand"
+                                  LargeImageSource="/Images/favpng_favicon-icon.png" 
+                                  Command="{Binding ShowAddPrincipalCommand}"
+                                   CommandParameter="{x:Static common:Roole.Lybrarian}"
+                                  Margin="0 0 10 0"
+                                   />
+                    <RibbonButton Label="Add Student"
                                   VerticalAlignment="Top"
                                   Cursor="Hand"
                                   LargeImageSource="/Images/favpng_favicon-icon.png" 
                                   Command="{Binding ShowAddPrincipalCommand}" 
+                                  CommandParameter="{x:Static common:Roole.Student}"
                                    />
                 </RibbonGroup>
                
             </RibbonTab>
-            
+            <RibbonTab Header="Books and Magazines">
+                
+            </RibbonTab>
         </Ribbon>
         <Grid>
             <Grid.Resources>

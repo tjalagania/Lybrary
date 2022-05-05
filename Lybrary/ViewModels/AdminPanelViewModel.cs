@@ -3,12 +3,7 @@ using Lybrary.common;
 using Lybrary.LybrarbyDbContext;
 using Lybrary.LybrarbyDbContext.Services;
 using Lybrary.Navigation;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Lybrary.ViewModels
@@ -67,7 +62,8 @@ namespace Lybrary.ViewModels
         public ICommand? ShowAddPrincipalCommand { get; }
         private void ShowAddPrincipalMethod(object obj)
         {
-            CurrentView = new AddPrincipalViewModel(Factory, null);
+            Roole roole = (Roole)obj;
+            CurrentView = new AddPrincipalViewModel(Factory, null,roole);
         }
         #endregion
         public AdminPanelViewModel(LibraryDbContextFactory factory, NavigationStore navStore)
